@@ -1,3 +1,27 @@
+# Dependencies
+node_modules
+.pnp.cjs
+.pnp.loader.mjs
+
+# Yarn PnP specific files
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+.vscode
+
+# Vite
+.vite/
+dist
+dist-ssr
+coverage
+
+# Testing
+/test-results/
+
 # Logs
 logs
 *.log
@@ -7,18 +31,28 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# OS and Editors
 .DS_Store
+.idea
+.vscode
 *.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+*.user
+*.casc
+*.pid
+.project
+.classpath
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# TypeScript
+*.tsbuildinfo
+
+# Output of `vite build`
+/dist
+/build
+
+# Output of `vite preview`
+/dist-ssr
