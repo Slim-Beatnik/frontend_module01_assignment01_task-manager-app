@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router';
-import Landing from './pages/Landing';
 import Dashboard from './pages/Dashboard';
-import './App.css';
+import Landing from './pages/Landing';
 
 function App() {
   return (
@@ -11,7 +10,7 @@ function App() {
         element={<Landing />}
       />
       <Route
-        index
+        path="/dashboard"
         element={<Dashboard />}
       />
     </Routes>
