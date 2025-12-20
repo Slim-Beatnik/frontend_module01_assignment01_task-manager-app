@@ -1,0 +1,31 @@
+@layer components {
+  .dark {
+    --color-background: var(--color-dracula-bg);
+    --color-foreground: var(--color-dracula-fg);
+
+    --color-primary: var(--color-dracula-purple);
+    --color-accent: var(--color-dracula-pink);
+    --color-success: var(--color-dracula-green);
+    --color-error: var(--color-dracula-red);
+    --color-warning: var(--color-dracula-orange);
+    --color-info: var(--color-dracula-cyan);
+
+    --color-surface: var(--color-dracula-bg-light);
+    --color-border: var(--color-dracula-bg-darker);
+  }
+
+  .light {
+    --color-background: var(--color-dracula-fg);
+    --color-foreground: var(--color-dracula-bg);
+
+    --color-primary: var(--color-dracula-purple-shift);
+    --color-accent: var(--color-dracula-pink-shift);
+    --color-success: var(--color-dracula-green-shift);
+    --color-error: var(--color-dracula-red-shift);
+    --color-warning: var(--color-dracula-orange-shift);
+    --color-info: var(--color-dracula-cyan-shift);
+
+    --color-surface: var(--color-dracula-bg-darker);
+    --color-border: var(--color-dracula-bg-light);
+  }
+}

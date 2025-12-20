@@ -1,0 +1,32 @@
+@theme {
+  --breakpoint-xs: 30rem;
+  /* Base Palette */
+  --color-dracula-bg: #282a36;
+  --color-dracula-fg: #f8f8f2;
+  --color-dracula-selection: #44475a;
+  --color-dracula-comment: #6272a4;
+
+  /* Accent Colors */
+  --color-dracula-cyan: #8be9fd;
+  --color-dracula-green: #50fa7b;
+  --color-dracula-orange: #ffb86c;
+  --color-dracula-pink: #ff79c6;
+  --color-dracula-purple: #bd93f9;
+  --color-dracula-red: #ff5555;
+  --color-dracula-yellow: #f1fa8c;
+
+  /* Accent Shifts */
+  --color-dracula-cyan-shift: #a4ffff;
+  --color-dracula-green-shift: #69ff94;
+  --color-dracula-orange-shift: #ffcb68;
+  --color-dracula-pink-shift: #ff92df;
+  --color-dracula-purple-shift: #d6acff;
+  --color-dracula-red-shift: #ff6e6e;
+  --color-dracula-yellow-shift: #ffffa5;
+
+  /* UI Neutrals */
+  --color-dracula-bg-light: #343746;
+  --color-dracula-bg-dark: #21222c;
+  --color-dracula-bg-darker: #191a21;
+  --color-dracula-line-highlight: #44475a75;
+}
