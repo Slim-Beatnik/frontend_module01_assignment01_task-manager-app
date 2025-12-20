@@ -1,4 +1,5 @@
 @theme {
+  --breakpoint-xs: 30rem;
   /* Base Palette */
   --color-dracula-bg: #282a36;
   --color-dracula-fg: #f8f8f2;

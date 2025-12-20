@@ -1319,6 +1319,9 @@ __metadata:
     typescript: "npm:~5.9.3"
     typescript-eslint: "npm:^8.46.4"
     vite: "npm:^7.3.0"
+  dependenciesMeta:
+    "@ianvs/prettier-plugin-sort-imports@4.7.0":
+      unplugged: true
   languageName: unknown
   linkType: soft
 
