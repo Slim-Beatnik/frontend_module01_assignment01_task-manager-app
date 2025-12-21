@@ -26,7 +26,7 @@ export default function Landing() {
         <div className="flex h-fit justify-center text-center text-sm">
           <p className="font-mono">
             <span className="text-dracula-pink">Created</span>
-            <span className="text-dracula-green">&nbsp;by&nbsp;</span>
+            <span className="text-dracula-green"> by </span>
             <strong className="text-dracula-cyan">Kyle Hill</strong>.
             <br />
             <em className="text-dracula-comment">
