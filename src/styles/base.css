@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
 @theme {
+  --font-sans:
+    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+  --font-mono: 'Inconsolata', 'Fira Code', 'Courier New', Courier, monospace;
+
   --breakpoint-xs: 30rem;
   /* Base Palette */
   --color-dracula-bg: #282a36;
