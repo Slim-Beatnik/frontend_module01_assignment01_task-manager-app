@@ -24,19 +24,20 @@ export default function Landing() {
         </div>
         <div className="flex h-50" />
         <div className="flex h-fit justify-center text-center text-sm">
-          <p>
+          <p className="font-mono">
             <span className="text-dracula-pink">Created</span>
             <span className="text-dracula-green">&nbsp;by&nbsp;</span>
             <strong className="text-dracula-cyan">Kyle Hill</strong>.
             <br />
             <em className="text-dracula-comment">
               This project was made with <strong>yarn 4.12.0</strong> for the
-              express use of the experimental{' '}
+              express use of the experimental
+              <br />
               <span className="underline">
                 0 install Plug'n'Play, vite React TS, and TailwindCSS.
               </span>
               <br />
-              The tailwind customized theming colors is made to emulate my
+              The tailwind customized theming colors were extracted from my
               preferred vscode theme:
             </em>
             <strong className="text-dracula-red">
