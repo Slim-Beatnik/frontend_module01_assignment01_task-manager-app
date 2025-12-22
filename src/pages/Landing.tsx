@@ -16,8 +16,8 @@ export default function Landing() {
             task management application.
           </p>
         </div>
-        <div className="flex justify-center grow h-100">
-          <div className="border-dracula-bg-darker shadow-dracula-cyan flex w-full my-auto max-w-sm flex-col rounded-lg border-2 bg-transparent p-6 shadow-xl/30 animate-shadow-pulse">
+        <div className="flex h-100 grow justify-center">
+          <div className="border-dracula-bg-darker shadow-dracula-cyan animate-shadow-pulse my-auto flex w-full max-w-sm flex-col rounded-lg border-2 bg-transparent p-6 shadow-xl/30">
             <h2 className="text-dracula-pink mb-6 text-center text-2xl font-bold">
               Login to get started
             </h2>
