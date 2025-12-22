@@ -1,12 +1,14 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import { NavLink } from 'react-router';
 import MainLayout from '../layout/MainLayout';
 
 export default function Landing() {
+  const { loginWithRedirect, isLoading, isAuthenticated } = useAuth0();
   return (
     <MainLayout>
       <div className="align-center container mx-auto justify-center px-4 pt-20 sm:min-w-100 md:min-w-80">
-        <h1 className="text-dracula-yellow xs: sm: md: lg: mx-auto mb-6 w-80 w-full text-center text-4xl text-5xl text-6xl text-7xl font-bold">
-          Welcome to the Task App
+        <h1 className="text-dracula-yellow xs:w-full xs:text-4xl mb-6 w-80 text-center font-bold sm:text-5xl md:mx-auto md:text-6xl lg:text-7xl">
+          Welcome to the Check-off!
         </h1>
         <div className="mx-auto w-fit">
           <p className="text-dracula-cyan mx-3 mb-8 text-justify text-lg">
@@ -14,15 +16,21 @@ export default function Landing() {
             task management application.
           </p>
         </div>
-        <div className="bg-dracula-bg flex justify-center">
-          <NavLink
-            to="/login"
-            className="bg-dracula-pink hover:text-dracula-red hover:text-shadow-dracula-fg hover:bg-dracula-purple-shift border-dracula-pink-shift w-fit rounded-xl border-2 px-6 py-3 font-semibold transition-colors duration-300 hover:text-shadow-2xs"
-          >
-            Get Started
-          </NavLink>
+        <div className="flex justify-center grow h-100">
+          <div className="border-dracula-bg-darker shadow-dracula-cyan flex w-full my-auto max-w-sm flex-col rounded-lg border-2 bg-transparent p-6 shadow-xl/30 animate-shadow-pulse">
+            <h2 className="text-dracula-pink mb-6 text-center text-2xl font-bold">
+              Login to get started
+            </h2>
+
+            <button
+              onClick={() => loginWithRedirect()}
+              disabled={isLoading}
+              className="bg-dracula-purple-shift border-dracula-comment text-dracula-bg hover:bg-dracula-purple hover:text-dracula-bg-darker mt-4 w-full rounded-lg border-2 px-4 py-2 font-semibold disabled:opacity-50"
+            >
+              Continue with Auth0
+            </button>
+          </div>
         </div>
-        <div className="flex h-50" />
         <div className="flex h-fit justify-center text-center text-sm">
           <p className="font-mono">
             <span className="text-dracula-pink">Created</span>
@@ -30,12 +38,16 @@ export default function Landing() {
             <strong className="text-dracula-cyan">Kyle Hill</strong>.
             <br />
             <em className="text-dracula-comment">
-              This project was made with <strong>yarn 4.12.0</strong> for the
-              express use of the experimental
+              This project was made with{' '}
+              <strong>
+                {' '}
+                Vite, React, Typescript, TailwindCSS,
+                <span className="font-normal"> and </span>
+                Yarn 4.12.0
+              </strong>{' '}
+              for the express use of the experimental
               <br />
-              <span className="underline">
-                0 install Plug'n'Play, vite React TS, and TailwindCSS.
-              </span>
+              <span className="underline">0 install Plug'n'Play.</span>
               <br />
               The tailwind customized theming colors were extracted from my
               preferred vscode theme:

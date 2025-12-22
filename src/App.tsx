@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router';
+import { ProtectedRoute } from './auth/ProtectedRoute';
 import Dashboard from './pages/Dashboard';
 import Landing from './pages/Landing';
 
@@ -9,10 +10,12 @@ function App() {
         path="/"
         element={<Landing />}
       />
-      <Route
-        path="/dashboard"
-        element={<Dashboard />}
-      />
+      <Route element={<ProtectedRoute />}>
+        <Route
+          path="/dashboard"
+          element={<Dashboard />}
+        />
+      </Route>
     </Routes>
   );
 }
