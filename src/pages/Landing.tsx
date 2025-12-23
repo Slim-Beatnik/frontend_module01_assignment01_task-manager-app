@@ -1,9 +1,17 @@
+import { useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { NavLink } from 'react-router';
 import MainLayout from '../layout/MainLayout';
 
 export default function Landing() {
   const { loginWithRedirect, isLoading, isAuthenticated } = useAuth0();
+
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     loginWithRedirect({ appState: { returnTo: '/dashboard' } });
+  //   }
+  // }, [isAuthenticated, loginWithRedirect]);
+
   return (
     <MainLayout>
       <div className="align-center container mx-auto justify-center px-4 pt-20 sm:min-w-100 md:min-w-80">
@@ -17,7 +25,7 @@ export default function Landing() {
           </p>
         </div>
         <div className="flex h-100 grow justify-center">
-          <div className="border-dracula-bg-darker shadow-dracula-cyan animate-shadow-pulse my-auto flex w-full max-w-sm flex-col rounded-lg border-2 bg-transparent p-6 shadow-xl/30">
+          <div className="border-dracula-bg-darker shadow-pulse bg-dracula-bg shadow-dracula-cyan z-2 my-auto flex w-full max-w-sm flex-col rounded-lg border-2 p-6 shadow-2xl/30 hover:[--shadow-pulse-color:var(--color-dracula-pink)]">
             <h2 className="text-dracula-pink mb-6 text-center text-2xl font-bold">
               Login to get started
             </h2>
@@ -38,7 +46,7 @@ export default function Landing() {
             <strong className="text-dracula-cyan">Kyle Hill</strong>.
             <br />
             <em className="text-dracula-comment">
-              This project was made with{' '}
+              This project was made with
               <strong>
                 {' '}
                 Vite, React, Typescript, TailwindCSS,
@@ -52,17 +60,14 @@ export default function Landing() {
               The tailwind customized theming colors were extracted from my
               preferred vscode theme:
             </em>
-            <strong className="text-dracula-red">
-              <br />
-              Dracula Refined
-            </strong>
             <br />
             <NavLink
               to="https://marketplace.visualstudio.com/items?itemName=mathcale.theme-dracula-refined"
               title='All instructions can be found at INSTALL, but you could just open the Extensions tab on VS Code and search for "Dracula Refined" (without quotes).'
               className="bg-dracula-selection hover:bg-dracula-comment-/[80] hover:text-dracula-purple border-dracula-bg-darker text-dracula-purple-shift py-auto mt-2 inline-block rounded-full border-2 px-2 font-semibold hover:underline"
             >
-              Link
+              <strong className="text-dracula-red">Dracula Refined</strong>
+              <br />
             </NavLink>
           </p>
         </div>
