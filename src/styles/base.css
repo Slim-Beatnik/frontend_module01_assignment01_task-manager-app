@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
-
+/* Fonts imported in index.css */
 @theme {
   --font-sans:
-    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Inter Tight', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     sans-serif;
   --font-mono: 'Inconsolata', 'Fira Code', 'Courier New', Courier, monospace;
 
@@ -36,4 +35,26 @@
   --color-dracula-bg-dark: #21222c;
   --color-dracula-bg-darker: #191a21;
   --color-dracula-line-highlight: #44475a75;
+
+  /* Animations */
+  --shadow-pulse-color: var(--color-dracula-cyan);
+  --shadow-pulse-strength: 30%;
+
+  @keyframes shadow-pulse {
+    0% {
+      box-shadow: 0 25px 50px -12px
+        color-mix(
+          in oklab,
+          var(--shadow-pulse-color) var(--shadow-pulse-strength),
+          transparent
+        );
+      opacity: 0.9;
+    }
+
+    100% {
+      box-shadow: 0 0 0 -10px
+        color-mix(in oklab, var(--shadow-pulse-color) 0%, transparent);
+      opacity: 0;
+    }
+  }
 }
