@@ -9,6 +9,12 @@
   "printWidth": 80,
   "singleAttributePerLine": true,
   "formatOnSave": true,
+  "overrides": [
+    {
+      "files": "*.svg",
+      "options": { "parser": "html" }
+    }
+  ],
   "plugins": [
     "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss"
