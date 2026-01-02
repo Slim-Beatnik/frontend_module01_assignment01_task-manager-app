@@ -45,7 +45,7 @@
       inset: 0;
       border-radius: inherit;
       pointer-events: none;
-      animation: shadow-pulse 2s ease-out infinite;
+      animation: shadow-pulse 1.87s ease-out infinite;
     }
   }
 

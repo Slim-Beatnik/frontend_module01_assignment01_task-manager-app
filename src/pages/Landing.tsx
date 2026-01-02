@@ -6,11 +6,11 @@ import MainLayout from '../layout/MainLayout';
 export default function Landing() {
   const { loginWithRedirect, isLoading, isAuthenticated } = useAuth0();
 
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     loginWithRedirect({ appState: { returnTo: '/dashboard' } });
-  //   }
-  // }, [isAuthenticated, loginWithRedirect]);
+  useEffect(() => {
+    if (isAuthenticated) {
+      loginWithRedirect({ appState: { returnTo: '/dashboard' } });
+    }
+  }, [isAuthenticated, loginWithRedirect]);
 
   return (
     <MainLayout>
@@ -50,10 +50,11 @@ export default function Landing() {
               <strong>
                 {' '}
                 Vite, React, Typescript, TailwindCSS,
+                <br />
                 <span className="font-normal"> and </span>
                 Yarn 4.12.0
               </strong>{' '}
-              for the express use of the experimental
+              for the express use of the experimental feature
               <br />
               <span className="underline">0 install Plug'n'Play.</span>
               <br />
