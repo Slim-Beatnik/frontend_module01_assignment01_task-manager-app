@@ -5,7 +5,9 @@ export const ProtectedRoute = () => {
   const { isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="mx-auto mt-50 flex w-fit justify-center">Loading...</div>
+    );
   }
 
   if (!isAuthenticated) {
