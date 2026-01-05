@@ -1,13 +1,12 @@
-export default function MainLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+import { Outlet } from 'react-router';
+import Navbar from '../components/Navbar';
+
+export default function MainLayout() {
   return (
     <section className="relative min-h-screen">
-      {/* <Navbar /> */}
+      <Navbar />
       <main className="dark bg-dracula-bg min-h-[calc(100vh - 8rem)]">
-        {children}
+        <Outlet />
       </main>
     </section>
   );
