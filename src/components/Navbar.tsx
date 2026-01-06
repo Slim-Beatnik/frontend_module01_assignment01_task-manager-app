@@ -4,8 +4,7 @@ import logo from '/favicon.svg?url';
 
 export default function Navbar() {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
-  const location = useLocation();
-  const currPath = location.pathname;
+  const { pathname: currPath } = useLocation();
 
   const noopOnDisable = (e: React.MouseEvent, path: string) => {
     if (currPath === path) {
@@ -25,6 +24,12 @@ export default function Navbar() {
     }
   };
 
+  const navTitlesPaths: { [key: string]: string } = {
+    Dashboard: '/dashboard',
+    Profile: '/profile',
+    Tasks: '/tasks',
+  };
+
   return (
     <>
       {currPath !== '/callback' && (
@@ -35,34 +40,27 @@ export default function Navbar() {
               alt="Logo"
               className="h-20 w-20"
             />
+            <span className="text-stroke-fill-dracula-red text-stroke-dracula-selection text-stroke-3 ml-2 self-center text-7xl font-semibold whitespace-nowrap">
+              Check-off
+            </span>
           </div>
-          <div className="flex-grow" />
+          <div className="grow" />
+
           {currPath !== '/' && (
+            // Only render nav links on pages other than home
             <div className="grid grid-cols-4 gap-4 md:flex md:gap-6">
-              <NavLink
-                to="/dashboard"
-                aria-disabled={currPath === '/dashboard'}
-                className="aria-disabled:bg-dracula-comment aria-disabled:text-dracula-bg-light bg-dracula-orange text-dracula-bg hover:bg-dracula-orange-shift hover:text-dracula-bg-darker inline-block rounded-2xl px-4 py-2 font-bold aria-disabled:pointer-events-none aria-disabled:cursor-not-allowed"
-                onClick={() => noopOnDisable(e, '/dashboard')}
-              >
-                Dashboard
-              </NavLink>
-              <NavLink
-                to="/profile"
-                aria-disabled={currPath === '/profile'}
-                className="aria-disabled:bg-dracula-comment aria-disabled:text-dracula-bg-light bg-dracula-orange text-dracula-bg hover:bg-dracula-orange-shift hover:text-dracula-bg-darker inline-block rounded-2xl px-4 py-2 font-bold aria-disabled:pointer-events-none aria-disabled:cursor-not-allowed"
-                onClick={() => noopOnDisable(e, '/profile')}
-              >
-                Profile
-              </NavLink>
-              <NavLink
-                to="/tasks"
-                aria-disabled={currPath === '/tasks'}
-                className="aria-disabled:bg-dracula-comment aria-disabled:text-dracula-bg-light bg-dracula-orange text-dracula-bg hover:bg-dracula-orange-shift hover:text-dracula-bg-darker inline-block rounded-2xl px-4 py-2 font-bold aria-disabled:pointer-events-none aria-disabled:cursor-not-allowed"
-                onClick={() => noopOnDisable(e, '/tasks')}
-              >
-                Tasks
-              </NavLink>
+              {/* Render nav links dynamically -- to add page make entry in navTitlesPaths */}
+
+              {Object.entries(navTitlesPaths).map(([title, path]) => (
+                <NavLink
+                  to={path}
+                  aria-disabled={currPath === path}
+                  className="aria-disabled:bg-dracula-comment aria-disabled:text-dracula-bg-light bg-dracula-orange text-dracula-bg hover:bg-dracula-orange-shift hover:text-dracula-bg-darker inline-block rounded-2xl px-4 py-2 font-bold aria-disabled:pointer-events-none aria-disabled:cursor-not-allowed"
+                  onClick={(e) => noopOnDisable(e, path)}
+                >
+                  {title}
+                </NavLink>
+              ))}
             </div>
           )}
           <div className="flex justify-end">
