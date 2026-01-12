@@ -34,7 +34,7 @@ export default function Navbar() {
     <>
       {currPath !== '/callback' && (
         <nav className="bg-dracula-bg flex flex-row items-center justify-between gap-2 px-4 py-2 shadow-md md:gap-24">
-          <div className="flex justify-start">
+          <div className="flex h-auto w-50 justify-start">
             <img
               src={logo}
               alt="Logo"
@@ -45,7 +45,7 @@ export default function Navbar() {
 
           {currPath !== '/' && (
             // Only render nav links on pages other than home
-            <div className="grid grow grid-cols-4 gap-4 md:flex md:gap-6">
+            <div className="hidden grow grid-cols-3 gap-4 sm:grid md:flex md:gap-6">
               {/* Render nav links dynamically -- to add page make entry in navTitlesPaths */}
 
               {Object.entries(navTitlesPaths).map(([title, path]) => (
@@ -53,7 +53,7 @@ export default function Navbar() {
                   key={title}
                   to={path}
                   aria-disabled={currPath === path}
-                  className="aria-disabled:bg-dracula-comment none aria-disabled:text-dracula-bg-light bg-dracula-orange text-dracula-bg hover:bg-dracula-orange-shift hover:text-dracula-bg-darker inline-block min-w-fit rounded-2xl px-4 py-2 text-sm font-bold aria-disabled:pointer-events-none aria-disabled:cursor-not-allowed md:text-lg"
+                  className="aria-disabled:bg-dracula-comment aria-disabled:text-dracula-bg-light bg-dracula-orange text-dracula-bg hover:bg-dracula-orange-shift hover:text-dracula-bg-darker inline-block min-w-fit rounded-2xl px-2 py-2 text-center text-xs font-bold aria-disabled:pointer-events-none aria-disabled:cursor-not-allowed sm:text-sm md:px-4 md:text-lg"
                   onClick={(e) => noopOnDisable(e, path)}
                 >
                   {title}

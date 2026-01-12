@@ -2,41 +2,16 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-  width="100%"
-  height="auto"
+  width="auto"
+  height="100%"
   viewBox="88 0 200 200"
   version="1.1"
   id="svg1"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:svg="http://www.w3.org/2000/svg"
-  preserveAspectrRatio="xMidYMid meet"
-  style="tranform-origin: 0 50%"
+  preserveAspectRatio="xMidYMid meet"
 >
-  <defs>
-    <rect
-        x="142.48702"
-        y="472.63987"
-        width="443.09988"
-        height="107.73409"
-        id="rect2" />
-    <filter
-        id="mask-powermask-path-effect4_inverse"
-        style="color-interpolation-filters:sRGB"
-        height="100"
-        width="100"
-        x="-50"
-        y="-50">
-      <feColorMatrix
-          id="mask-powermask-path-effect4_primitive1"
-          values="1"
-          type="saturate"
-          result="fbSourceGraphic" />
-      <feColorMatrix
-          id="mask-powermask-path-effect4_primitive2"
-          values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0 "
-          in="fbSourceGraphic" />
-    </filter>
-  </defs>
+  
   <g
       id="layer1"
       style="display:inline">
