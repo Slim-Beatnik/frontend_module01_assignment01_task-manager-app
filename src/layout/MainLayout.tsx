@@ -5,7 +5,7 @@ export default function MainLayout() {
   return (
     <section className="relative min-h-screen">
       <Navbar />
-      <main className="dark bg-dracula-bg min-h-[calc(100vh - 8rem)]">
+      <main className="dark bg-dracula-bg h-[calc(100vh - 8rem)] w-screen">
         <Outlet />
       </main>
     </section>
