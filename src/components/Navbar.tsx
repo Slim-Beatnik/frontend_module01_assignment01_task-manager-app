@@ -33,7 +33,7 @@ export default function Navbar() {
   return (
     <>
       {currPath !== '/callback' && (
-        <nav className="bg-dracula-bg flex flex-row items-center justify-between gap-2 px-4 py-2 shadow-md md:gap-24">
+        <nav className="bg-dracula-bg flex h-24 flex-row items-center justify-between gap-2 px-4 py-2 shadow-md md:gap-24">
           <div className="flex h-auto w-50 justify-start">
             <img
               src={logo}
