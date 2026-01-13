@@ -4,7 +4,7 @@ import logo from '/checkOff.svg?url';
 
 export default function Navbar() {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
-  const { pathname: currPath } = useLocation();
+  const { pathname: currPath } = useLocation(); // access pathname as currPath
 
   const noopOnDisable = (e: React.MouseEvent, path: string) => {
     if (currPath === path) {
