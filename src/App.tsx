@@ -4,6 +4,7 @@ import MainLayout from './layout/MainLayout';
 import Callback from './pages/Callback';
 import Dashboard from './pages/Dashboard';
 import Landing from './pages/Landing';
+import AllTasks from './pages/Tasks';
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
           <Route
             path="/dashboard"
             element={<Dashboard />}
+          />
+          <Route
+            path="/tasks"
+            element={<AllTasks />}
           />
         </Route>
       </Route>
