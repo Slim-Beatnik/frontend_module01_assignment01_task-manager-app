@@ -56,7 +56,7 @@ export default function ProgressCircle({
                 fontSize="40"
                 dy="-5"
               >
-                {numerator || '0'}
+                {numerator}
               </tspan>
               <tspan
                 fontSize="50"
