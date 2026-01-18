@@ -9,12 +9,12 @@ export default function ProgressCircle({
   denominator = 0,
 }: ProgressProps) {
   const radius = 25;
-  const size = 60;
+  const size = 75;
 
   return (
     <svg
       viewBox={`0 0 ${size} ${size}`}
-      className="h-full w-full"
+      className="h-full w-full content-center-safe"
     >
       <circle // progress circle
         cx={size / 2}
@@ -23,6 +23,7 @@ export default function ProgressCircle({
         className="stroke-dracula-red-shift fill-none transition-all duration-500"
         pathLength="100" // I can set the length to 100 so I don't have to use js to getSVGLength()
         strokeDasharray="100"
+        strokeLinecap="round"
         strokeDashoffset={100 - (numerator / denominator) * 100} // now the percentage math is straight forward
         strokeWidth="10"
       />
@@ -30,15 +31,15 @@ export default function ProgressCircle({
         cx={size / 2}
         cy={size / 2}
         r={radius}
-        className="stroke-dracula-bg-light/50 fill-none mix-blend-color-burn"
+        className="stroke-dracula-bg-light/40 fill-none mix-blend-color-burn"
         strokeWidth="12"
       />
 
       <svg // nest svg to scale with circle
-        x="15"
-        y="15"
-        width="30"
-        height="30"
+        x="21"
+        y="20"
+        width="33"
+        height="33"
         viewBox="0 0 100 100"
       >
         <text // align middle and adjust length set to scale with larger numbers
@@ -46,34 +47,41 @@ export default function ProgressCircle({
           y="50%"
           dominantBaseline="middle"
           textAnchor="middle"
-          className="fill-dracula-3000 font-bold"
+          className={ denominator ? "fill-dracula-3000 font-bold" : "fill-dracula-fg font-bold"}
           textLength="90"
           lengthAdjust="spacingAndGlyphs"
         >
-          {denominator && ( // only show if denominator over 0
+          {denominator ? ( // only show if denominator over 0
             <>
               <tspan // numerator shifted up with negative dy
                 fontSize="40"
-                dy="-5"
+                dy="-8"
               >
                 {numerator}
               </tspan>
               <tspan
                 fontSize="50"
-                className="fill-dracula-comment/90 font-light"
-                dy="2"
+                className="fill-dracula-green/90 font-light text-7xl"
+                dy="20"
               >
-                // had to search for this non-standard character
+                {/* had to search for this non-standard character */}
                 {'\u2044'}
               </tspan>
-            </>
-          )}
-          <tspan // denominator shifted down with positive dy if denominator over 0
+            <tspan // denominator shifted down with positive dy if denominator over 0
             fontSize="40"
-            dy={denominator ? 8 : 0}
-          >
-            {denominator}
-          </tspan>
+            dy="10"
+            >
+              {denominator}
+            </tspan>
+          </>
+          ) : (
+            <>
+              <tspan>
+                No Data
+              </tspan>
+            </>
+          )
+        }
         </text>
       </svg>
     </svg>
