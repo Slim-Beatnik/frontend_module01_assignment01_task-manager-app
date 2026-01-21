@@ -1,8 +1,9 @@
-@import 'tailwindcss';
-
 /* Fonts */
 /* Inter Tight and Inconsolata */
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import 'tailwindcss';
+
 
 /* Layers */
 @import './base.css';

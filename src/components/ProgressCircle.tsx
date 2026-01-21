@@ -24,7 +24,8 @@ export default function ProgressCircle({
         pathLength="100" // I can set the length to 100 so I don't have to use js to getSVGLength()
         strokeDasharray="100"
         strokeLinecap="round"
-        strokeDashoffset={100 - (numerator / denominator) * 100} // now the percentage math is straight forward
+        // now the percentage math is straight forward and don't divide by 0
+        strokeDashoffset={denominator ? ((numerator / denominator) * 100) : 0}
         strokeWidth="10"
       />
       <circle // background circle 50% opacity
