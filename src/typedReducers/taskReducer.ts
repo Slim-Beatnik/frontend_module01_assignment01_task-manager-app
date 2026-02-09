@@ -19,13 +19,25 @@ export type TaskAction =
   | { type: 'TOGGLE_TASK_COMPLETION'; payload: { id: string } }
   | { type: 'HYDRATE_TASKS'; payload: Task[] };
 
-export const initializer = (initialState: Task[]): Task[] => {
-  try {
-    const storedState = localStorage.getItem('myAppState');
-    return storedState ? JSON.parse(storedState) : initialState;
-  } catch (error) {
-    console.error("Error reading localStorage:", error);
+export const taskInit = (initialState: Task[]): Task[] => {
+  if (initialState.length === 0) {
+    try {
+      const storedState = localStorage.getItem('myTasks');
+      return storedState ? JSON.parse(storedState) : initialState;
+    } catch (error) {
+      console.error("Error reading localStorage:", error);
+      return initialState;
+    }
+  } else {
     return initialState;
+  }
+};
+
+export const saveLocal = (tasks: Task[]) => {
+  try {
+    localStorage.setItem('myTasks', JSON.stringify(tasks));
+  } catch (error) {
+    console.error("Error saving to localStorage:", error);
   }
 };
 

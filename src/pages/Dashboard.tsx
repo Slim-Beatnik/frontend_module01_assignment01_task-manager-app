@@ -1,18 +1,11 @@
 import { useEffect, useReducer } from "react";
 import ProgressCircle from "../components/ProgressCircle";
-import taskReducer from "../reducers/taskReducer";
+import taskReducer, { taskInit } from "../typedReducers/taskReducer";
 import { isToday } from "!/reusableFunctions";
 import { isThisWeek } from "../utils/reusableFunctions";
 
 function Dashboard() {
-  const [Tasks, dispatch] = useReducer(taskReducer, []);
-
-  useEffect(() => {
-    const storedTasks = localStorage.getItem('tasks');
-    if (storedTasks) {
-      dispatch({ type: 'LOAD_TASKS', payload: JSON.parse(storedTasks) });
-    }
-  }, []);
+  const [Tasks, dispatch] = useReducer(taskReducer, [], taskInit);
   
   const getTodayActiveTaskCount = () => {
     return Tasks.filter(task => task.lastActive && isToday(task.lastActive)).length;

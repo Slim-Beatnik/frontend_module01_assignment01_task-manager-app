@@ -1347,6 +1347,8 @@ __metadata:
   dependenciesMeta:
     "@ianvs/prettier-plugin-sort-imports@4.7.0":
       unplugged: true
+    prettier-plugin-tailwindcss@0.7.2:
+      unplugged: true
   languageName: unknown
   linkType: soft
 
