@@ -12,17 +12,17 @@ export default function Landing() {
   }, [isAuthenticated, loginWithRedirect]);
 
   return (
-    <div className="align-center container mx-auto justify-center px-4 pt-20 sm:min-w-100 md:min-w-80">
+    <div className="align-center container mx-auto justify-center px-4 pt-5 sm:min-w-100 md:min-w-80 min-h-[calc(100vh-6rem)] flex-col text-center">
       <h1 className="text-dracula-yellow xs:w-full xs:text-4xl mb-6 w-80 text-center font-bold sm:text-5xl md:mx-auto md:text-6xl lg:text-7xl">
         Welcome to the Check-off!
       </h1>
       <div className="mx-auto w-fit">
-        <p className="text-dracula-cyan mx-3 mb-8 text-justify text-lg">
+        <p className="text-dracula-cyan mx-3 text-justify text-lg">
           Manage your tasks efficiently and stay organized with our intuitive
           task management application.
         </p>
       </div>
-      <div className="flex h-100 grow justify-center">
+      <div id="login-container" className="flex h-100 grow justify-center">
         <div className="border-dracula-bg-darker shadow-pulse bg-dracula-bg shadow-dracula-cyan z-2 my-auto flex w-full max-w-sm flex-col rounded-lg border-2 p-6 shadow-2xl/30 hover:[--shadow-pulse-color:var(--color-dracula-pink)]">
           <h2 className="text-dracula-pink mb-6 text-center text-2xl font-bold">
             Login to get started

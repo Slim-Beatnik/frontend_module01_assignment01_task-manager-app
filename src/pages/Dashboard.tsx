@@ -1,36 +1,32 @@
 import { useEffect, useReducer } from "react";
 import ProgressCircle from "../components/ProgressCircle";
 import taskReducer, { taskInit } from "../typedReducers/taskReducer";
-import { isToday } from "!/reusableFunctions";
-import { isThisWeek } from "../utils/reusableFunctions";
+import metricReducer, { metricInit } from "../typedReducers/metricReducer";
+import { getDateStatus } from "!/reusableFunctions";
 
 function Dashboard() {
-  const [Tasks, dispatch] = useReducer(taskReducer, [], taskInit);
+  const [Tasks, taskDispatch] = useReducer(taskReducer, [], taskInit);
+  const [Metric, metricDispatch] = useReducer(metricReducer, [], () => metricInit([]));
+
+  useEffect(() => {
+    metricDispatch({ type: 'TASKS_TO_METRIC', payload: { tasks: Tasks } });
+    // Also save tasks to localStorage here
+    saveLocal(Tasks);
+  }, [Tasks]);
   
-  const getTodayActiveTaskCount = () => {
-    return Tasks.filter(task => task.lastActive && isToday(task.lastActive)).length;
+  const [isToday, isThisWeek, isThisMonth, isThisYear] = getDateStatus(Metric[Metric.length - 1]?.date || '');
+
+  const progressions = {
+    'Today': [getTodayCompletedMetricCount(), getTodayActiveMetricCount()],
+    'This Week': [getThisWeekCompletedMetricCount(), getThisWeekActiveMetricCount()],
+    'This Month': [0, 0], 'All Time': [0, 0]
   };
 
-  const getTodayCompletedTaskCount = () => {
-    return Tasks.filter(task => task.completed && isToday(task.lastCompleted)).length;
-  };
-
-  const getThisWeekActiveTaskCount = () => {
-    return Tasks.filter(task => task.lastActive&& isThisWeek(task.lastActive)).length;
-  };
-
-  const getThisWeekCompletedTaskCount = () => {
-    return Tasks.filter(task => task.lastCompleted && isThisWeek(task.lastCompleted)).length;
-  };
-
-
-
-  const progressions = {'Today': [getTodayCompletedTaskCount(), getTodayActiveTaskCount()], 'This Week': [getThisWeekCompletedTaskCount(), getThisWeekActiveTaskCount()], 'This Month': [0, 0], 'All Time': [0, 0]};
   return (
     <div className="mx-6 grid h-[calc(screen-48px-6rem)] w-[calc(screen-48px)] grid-cols-6 gap-6 p-6">
       <div className="grid grid-rows-4 gap-6 col-span-1">
 
-      {Object.entries(progressions).map(([title, numeDnomArray]) => (
+      {Object.entries(progressions).map(([title, [numerator, denominator]]) => (
         <section key={title} className="col-start-1 bg-dracula-comment max-w-60 min-w-40 h-fit w-full rounded-2xl text-center text-4xl p-4">
           <svg
             viewBox={`0 0 100 35`}
@@ -48,7 +44,7 @@ function Dashboard() {
               {title}
             </text>
           </svg>
-          <ProgressCircle numerator={numeDnomArray[0]} denominator={numeDnomArray[1]} />
+          <ProgressCircle numerator={numerator} denominator={denominator} />
         </section>
       ))}
       </div>

@@ -25,7 +25,7 @@ export default function ProgressCircle({
         strokeDasharray="100"
         strokeLinecap="round"
         // now the percentage math is straight forward and don't divide by 0
-        strokeDashoffset={denominator ? ((numerator / denominator) * 100) : 0}
+        strokeDashoffset={denominator ? ((numerator / denominator) * 100) : 100}
         strokeWidth="10"
       />
       <circle // background circle 50% opacity
