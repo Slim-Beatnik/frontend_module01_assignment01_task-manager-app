@@ -1,6 +1,6 @@
 {
   "name": "assignment01",
-  "packageManager": "yarn@4.12.0",
+  "packageManager": "pnpm@11.0.9",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -32,9 +32,9 @@
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4.1.18",
-    "typescript": "~5.9.3",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.46.4",
-    "vite": "^7.3.0"
+    "vite": "^8.0.11"
   },
   "dependenciesMeta": {
     "@ianvs/prettier-plugin-sort-imports@4.7.0": {

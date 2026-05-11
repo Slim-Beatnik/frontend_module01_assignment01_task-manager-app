@@ -25,7 +25,7 @@ export default function ProgressCircle({
         strokeDasharray="100"
         strokeLinecap="round"
         // now the percentage math is straight forward and don't divide by 0
-        strokeDashoffset={denominator ? ((numerator / denominator) * 100) : 100}
+        strokeDashoffset={denominator ? (numerator / denominator) * 100 : 100}
         strokeWidth="10"
       />
       <circle // background circle 50% opacity
@@ -48,7 +48,11 @@ export default function ProgressCircle({
           y="50%"
           dominantBaseline="middle"
           textAnchor="middle"
-          className={ denominator ? "fill-dracula-3000 font-bold" : "fill-dracula-fg font-bold"}
+          className={
+            denominator
+              ? 'fill-dracula-3000 font-bold'
+              : 'fill-dracula-fg font-bold'
+          }
           textLength="90"
           lengthAdjust="spacingAndGlyphs"
         >
@@ -62,27 +66,24 @@ export default function ProgressCircle({
               </tspan>
               <tspan
                 fontSize="50"
-                className="fill-dracula-green/90 font-light text-7xl"
+                className="fill-dracula-green/90 text-7xl font-light"
                 dy="20"
               >
                 {/* had to search for this non-standard character */}
                 {'\u2044'}
               </tspan>
-            <tspan // denominator shifted down with positive dy if denominator over 0
-            fontSize="40"
-            dy="10"
-            >
-              {denominator}
-            </tspan>
-          </>
-          ) : (
-            <>
-              <tspan>
-                No Data
+              <tspan // denominator shifted down with positive dy if denominator over 0
+                fontSize="40"
+                dy="10"
+              >
+                {denominator}
               </tspan>
             </>
-          )
-        }
+          ) : (
+            <>
+              <tspan>No Data</tspan>
+            </>
+          )}
         </text>
       </svg>
     </svg>
